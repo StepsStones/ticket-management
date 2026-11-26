@@ -126,9 +126,20 @@ export const NotificationProvider: React.FC<{ children: React.ReactNode }> = ({ 
     const token = localStorage.getItem('stepsstone_access_token');
     if (!token) return;
 
-    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-    const host = window.location.host;
-    const wsUrl = `${protocol}//${host}/api/v1/ws?token=${token}`;
+    const rawApiUrl = import.meta.env.VITE_API_URL?.trim();
+    let wsUrl: string;
+
+    if (rawApiUrl) {
+      const cleanUrl = rawApiUrl.replace(/\/+$/, '');
+      const wsBase = cleanUrl.replace(/^https?:\/\//i, (match: string) =>
+        match.toLowerCase().startsWith('https') ? 'wss://' : 'ws://'
+      );
+      wsUrl = `${wsBase}/api/v1/ws?token=${encodeURIComponent(token)}`;
+    } else {
+      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+      const host = window.location.host;
+      wsUrl = `${protocol}//${host}/api/v1/ws?token=${encodeURIComponent(token)}`;
+    }
 
     const ws = new WebSocket(wsUrl);
     wsRef.current = ws;

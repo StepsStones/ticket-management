@@ -16,14 +16,50 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 3px;
+  border-radius: 9999px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Sleek integrated scrollbar inside dark sidebar & dark panels */
+aside,
+.custom-sidebar-scrollbar,
+.dark-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.28) transparent;
+}
+
+aside *::-webkit-scrollbar,
+.custom-sidebar-scrollbar::-webkit-scrollbar,
+.dark-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+aside *::-webkit-scrollbar-track,
+.custom-sidebar-scrollbar::-webkit-scrollbar-track,
+.dark-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 6px 0;
+}
+
+aside *::-webkit-scrollbar-thumb,
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb,
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+aside *::-webkit-scrollbar-thumb:hover,
+.custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover,
+.dark-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
 }
 
 /* Animated Checkmark in Success Popup */

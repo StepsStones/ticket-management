@@ -507,7 +507,7 @@ export const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId, onBack }) 
                       </p>
                     </div>
                     <a
-                      href={a.file_path}
+                      href={getAttachmentDownloadUrl(a.file_path)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="p-1.5 text-blue-600 hover:text-blue-800 bg-white rounded border border-slate-200 shadow-2xs transition"
@@ -1052,6 +1052,17 @@ export const TicketDetail: React.FC<TicketDetailProps> = ({ ticketId, onBack }) 
     </div>
   );
 };
+
+function getAttachmentDownloadUrl(filePath: string): string {
+  if (!filePath) return '';
+  if (filePath.startsWith('http://') || filePath.startsWith('https://')) {
+    return filePath;
+  }
+  const rawApiUrl = import.meta.env.VITE_API_URL?.trim();
+  const backendUrl = rawApiUrl ? rawApiUrl.replace(/\/+$/, '') : '';
+  const cleanPath = filePath.startsWith('/') ? filePath : `/${filePath}`;
+  return backendUrl ? `${backendUrl}${cleanPath}` : cleanPath;
+}
 
 function roundSize(bytes: number): string {
   if (bytes < 1024) return `${bytes} B`;

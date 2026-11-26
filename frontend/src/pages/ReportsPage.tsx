@@ -119,10 +119,10 @@ export const ReportsPage: React.FC = () => {
                 <h2 className="text-sm font-bold text-slate-900 tracking-tight">
                   Operational Analytics & SLA Intelligence
                 </h2>
-                <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                {/* <span className="inline-flex items-center px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
                   Live Sync
-                </span>
+                </span> */}
               </div>
               <p className="text-[11px] text-slate-500 truncate hidden sm:block">
                 Turnaround SLA compliance, real estate portfolio allocation & case lifecycle velocity.
@@ -353,13 +353,12 @@ export const ReportsPage: React.FC = () => {
                   >
                     <div className="flex items-center space-x-2 min-w-0">
                       <span
-                        className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center shrink-0 border ${
-                          actualRank === 1
+                        className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center shrink-0 border ${actualRank === 1
                             ? 'bg-amber-100 text-amber-900 border-amber-300 font-extrabold shadow-2xs'
                             : actualRank === 2
-                            ? 'bg-slate-100 text-slate-700 border-slate-200 font-bold'
-                            : 'bg-slate-50 text-slate-500 border-slate-100'
-                        }`}
+                              ? 'bg-slate-100 text-slate-700 border-slate-200 font-bold'
+                              : 'bg-slate-50 text-slate-500 border-slate-100'
+                          }`}
                       >
                         {actualRank}
                       </span>
@@ -439,13 +438,12 @@ export const ReportsPage: React.FC = () => {
                   >
                     <div className="flex items-center space-x-2 min-w-0">
                       <span
-                        className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center shrink-0 ${
-                          actualRank === 1
+                        className={`w-4 h-4 rounded text-[9px] font-bold flex items-center justify-center shrink-0 ${actualRank === 1
                             ? 'bg-amber-100 text-amber-900 border border-amber-300 font-extrabold shadow-2xs'
                             : actualRank === 2
-                            ? 'bg-slate-100 text-slate-700 border border-slate-200 font-bold'
-                            : 'bg-slate-50 text-slate-500 border border-slate-100'
-                        }`}
+                              ? 'bg-slate-100 text-slate-700 border border-slate-200 font-bold'
+                              : 'bg-slate-50 text-slate-500 border border-slate-100'
+                          }`}
                       >
                         {actualRank}
                       </span>

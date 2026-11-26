@@ -70,7 +70,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   ];
 
   return (
-    <aside className="w-64 bg-slate-900 text-slate-300 flex flex-col h-screen sticky top-0 shrink-0 select-none">
+    <aside className="w-64 bg-slate-900 text-slate-300 flex flex-col h-screen sticky top-0 shrink-0 select-none border-r border-slate-800">
       {/* Brand Header */}
       <div className="h-14 px-4 border-b border-slate-800 flex items-center space-x-3 bg-slate-950/40 shrink-0">
         <div className="w-9 h-9 rounded-lg bg-gradient-to-tr from-amber-500 to-amber-400 text-slate-950 flex items-center justify-center font-black text-lg shadow-md">
@@ -87,7 +87,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
       </div>
 
       {/* Nav items list */}
-      <div className="flex-1 overflow-y-auto py-4 px-3 space-y-1">
+      <div className="flex-1 overflow-y-auto py-4 pl-3 pr-2 space-y-1 custom-sidebar-scrollbar">
         <div className="px-3 pb-1 text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
           Ticket Operations
         </div>

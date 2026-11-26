@@ -3,7 +3,10 @@ import {
   NotificationItem, AuditLogItem, DashboardStats, DashboardCharts, EmployeeWorkload
 } from '../types';
 
-const API_BASE = '/api/v1';
+const VITE_API_URL = import.meta.env.VITE_API_URL?.trim();
+const CLEAN_API_URL = VITE_API_URL ? VITE_API_URL.replace(/\/+$/, '') : '';
+export const API_BASE = CLEAN_API_URL ? `${CLEAN_API_URL}/api/v1` : '/api/v1';
+export const BACKEND_URL = CLEAN_API_URL;
 
 export interface PaginatedResult<T> {
   items: T[];
